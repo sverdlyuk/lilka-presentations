@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sverdlyuk.github.io/lilka-presentations/sitemap.xml

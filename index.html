@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Презентації Лілки — українська open-source консоль</title>
+<meta name="description" content="Презентації та лекції про Лілку — українську відкриту портативну консоль на ESP32-S3 для навчання, ігор і власних пристроїв. Схеми, SDK та прошивка у вільному доступі.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://sverdlyuk.github.io/lilka-presentations/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:site_name" content="Презентації Лілки">
+<meta property="og:title" content="Презентації Лілки — українська open-source консоль">
+<meta property="og:description" content="Презентації та лекції про Лілку — українську відкриту портативну консоль на ESP32-S3.">
+<meta property="og:url" content="https://sverdlyuk.github.io/lilka-presentations/">
+<meta property="og:image" content="https://sverdlyuk.github.io/lilka-presentations/assets/thumbs/znayomstvo-z-lilkoyu.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Презентації Лілки">
+<meta name="twitter:description" content="Лекції та презентації про українську відкриту консоль Лілку.">
+<meta name="twitter:image" content="https://sverdlyuk.github.io/lilka-presentations/assets/thumbs/znayomstvo-z-lilkoyu.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0e0d14; --bg2:#17151f; --card:#1c1a26; --card-h:#242232;
+  --ink:#f3f1f8; --muted:#a7a2bb; --line:#2c2a3a;
+  --accent:#b98bff; --accent2:#7c5cff; --ring:rgba(185,139,255,.35);
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#f6f4fb; --bg2:#efeaf8; --card:#ffffff; --card-h:#faf8ff;
+    --ink:#1b1830; --muted:#5f5976; --line:#e5e0f0;
+    --accent:#6f3cff; --accent2:#9a6bff; --ring:rgba(111,60,255,.25);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e0d14; --bg2:#17151f; --card:#1c1a26; --card-h:#242232;
+  --ink:#f3f1f8; --muted:#a7a2bb; --line:#2c2a3a;
+  --accent:#b98bff; --accent2:#7c5cff; --ring:rgba(185,139,255,.35);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:"Golos Text",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased; line-height:1.55;
+  background-image:radial-gradient(900px 500px at 80% -10%, color-mix(in srgb,var(--accent2) 22%, transparent), transparent 70%),
+                   radial-gradient(700px 500px at -10% 10%, color-mix(in srgb,var(--accent) 16%, transparent), transparent 70%);
+  background-attachment:fixed;
+}
+.wrap{max-width:960px; margin:0 auto; padding:16px;}
+header{padding:64px 0 36px;}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);
+  border:1px solid var(--line);background:color-mix(in srgb,var(--card) 70%,transparent);padding:6px 12px;border-radius:999px;}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--ring)}
+h1{font-size:clamp(32px,6vw,52px);line-height:1.05;margin:20px 0 10px;font-weight:700;letter-spacing:-.02em}
+.lead{font-size:clamp(16px,2.4vw,19px);color:var(--muted);max-width:60ch;margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin:8px 0 48px}
+.card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;
+  text-decoration:none;color:inherit;transition:transform .18s ease,border-color .18s ease,background .18s ease;}
+.card:hover{transform:translateY(-4px);border-color:var(--accent);background:var(--card-h)}
+.card:focus-visible{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--ring)}
+.thumb{aspect-ratio:16/9;background:var(--bg2);overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card h2{font-size:21px;margin:0;font-weight:600;letter-spacing:-.01em}
+.card p{margin:0;color:var(--muted);font-size:15px;flex:1}
+.go{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--accent);font-size:15px;margin-top:4px}
+.go svg{transition:transform .18s ease}
+.card:hover .go svg{transform:translateX(4px)}
+footer{border-top:1px solid var(--line);padding:28px 0 56px;color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;justify-content:space-between}
+footer a{color:var(--accent);text-decoration:none}
+footer a:hover{text-decoration:underline}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ItemList",
+  "name":"Презентації Лілки",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"url":"https://sverdlyuk.github.io/lilka-presentations/znayomstvo-z-lilkoyu.html","name":"Знайомство з Лілкою"},
+    {"@type":"ListItem","position":2,"url":"https://sverdlyuk.github.io/lilka-presentations/lviv-polytechnic.html","name":"Лілка — Львівська політехніка"}
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="kicker"><span class="dot"></span>Open-source · Україна</span>
+    <h1>Презентації Лілки</h1>
+    <p class="lead">Лекції та слайди про Лілку — українську відкриту портативну консоль на ESP32-S3 для навчання, ігор і власних пристроїв. Схеми, SDK і прошивка у вільному доступі.</p>
+  </header>
+
+  <main class="grid">
+    <a class="card" href="znayomstvo-z-lilkoyu.html">
+      <div class="thumb"><img src="assets/thumbs/znayomstvo-z-lilkoyu.jpg" alt="Слайд презентації «Знайомство з Лілкою»" loading="lazy" width="800" height="450"></div>
+      <div class="body">
+        <h2>Знайомство з Лілкою</h2>
+        <p>Що таке Лілка, звідки вона з'явилася і як влаштована платформа для творчості, навчання та ігор.</p>
+        <span class="go">Відкрити презентацію
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </div>
+    </a>
+
+    <a class="card" href="lviv-polytechnic.html">
+      <div class="thumb"><img src="assets/thumbs/lviv-polytechnic.jpg" alt="Слайд презентації для Львівської політехніки" loading="lazy" width="800" height="450"></div>
+      <div class="body">
+        <h2>Лілка — Львівська політехніка</h2>
+        <p>Як ми випадково створили український open-source продукт. Історія розвитку Лілки та Keira OS від Євгена Бойчука.</p>
+        <span class="go">Відкрити презентацію
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </div>
+    </a>
+  </main>
+
+  <footer>
+    <span>© Лілка — відкритий проєкт спільноти</span>
+    <span><a href="https://docs.lilka.dev">docs.lilka.dev</a> · <a href="https://github.com/sverdlyuk">github.com/sverdlyuk</a></span>
+  </footer>
+</div>
+</body>
+</html>
